@@ -1,0 +1,249 @@
+<!--
+  Generated template for the PRegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>הרשמה כבעל עסק</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+
+
+  <ion-list>
+
+
+    <ion-item>
+      <ion-label>בחר תחום</ion-label>
+      <ion-select [(ngModel)]="profession">
+        <ion-option >אילוף כלבים</ion-option>
+        <ion-option>בניית ציפורניים</ion-option>
+        <ion-option >איפור</ion-option>
+        <ion-option >עיצוב שיער ומספרות</ion-option>
+        <ion-option>קוסמטיקאיות</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+
+
+
+
+
+    <ion-item>
+      <ion-label floating>שם מלא*</ion-label>
+      <ion-input type = "text"
+                 [(ngModel)] = "nameField"
+                 required
+      ></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>שם בית העסק*</ion-label>
+      <ion-input type = "text"
+                 [(ngModel)] = "cname"
+                 required
+      ></ion-input>
+    </ion-item>
+
+
+
+    <ion-item>
+      <ion-label floating>מייל*</ion-label>
+      <ion-input type = "text"
+                 [(ngModel)] = "emailField"
+                 required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>טלפון*</ion-label>
+      <ion-input type = "number"
+                 [(ngModel)] = "pnField"
+                 required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>סיסמה*</ion-label>
+      <ion-input type = "Password"
+                 [(ngModel)] = "passwordField"
+                 required
+      ></ion-input>
+    </ion-item>
+
+
+
+    <ion-item>
+      <ion-label floating>מכמה מילים על בית העסק</ion-label>
+      <ion-input type = "text"
+                 [(ngModel)] = "text"
+                 required
+      ></ion-input>
+    </ion-item>
+
+
+
+
+
+
+    <ion-item >
+      <ion-label>סמן את הימים בהם אתה עובד</ion-label>
+      <ion-select [(ngModel)]="days" multiple="true"(ionChange)="onSelectChange()" >
+        <ion-option value=0>ראשון</ion-option>
+        <ion-option value=1>שני</ion-option>
+        <ion-option value=2>שלישי</ion-option>
+        <ion-option value=3>רבעי</ion-option>
+        <ion-option value=4>חמישי</ion-option>
+        <ion-option value=5>שישי</ion-option>
+        <ion-option value=6>שבת</ion-option>
+      </ion-select >
+    </ion-item >
+
+    <ion-item [hidden]="dateTime[0].work != 'true'">
+    <h1>יום ראשון</h1>
+    </ion-item>
+    <ion-item [hidden]="dateTime[0].work != 'true'">
+      <ion-label>שעת התחלה</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[0].startTime" ></ion-datetime>
+    </ion-item>
+
+    <ion-item [hidden]="dateTime[0].work  != 'true'">
+      <ion-label>שעת סיום</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[0].endTime" ></ion-datetime>
+    </ion-item>
+
+    <ion-item [hidden]="dateTime[0].work  != 'true'">
+      <ion-label>זמן טיפול ללקוח</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[0].duration" ></ion-datetime>
+    </ion-item>
+
+
+    <ion-item [hidden]="dateTime[1].work != 'true'">
+      <h1>יום שני</h1>
+    </ion-item>
+    <ion-item [hidden]="dateTime[1].work != 'true'">
+      <ion-label>שעת התחלה</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[1].startTime" [min]="minDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item [hidden]="dateTime[1].work  != 'true'">
+      <ion-label>שעת סיום</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[1].endTime" [min]="minDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item [hidden]="dateTime[1].work  != 'true'">
+      <ion-label>זמן טיפול ללקוח</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[1].duration" ></ion-datetime>
+    </ion-item>
+
+    <ion-item [hidden]="dateTime[2].work != 'true'">
+      <h1>יום שלישי</h1>
+    </ion-item>
+    <ion-item [hidden]="dateTime[2].work != 'true'">
+      <ion-label>שעת התחלה</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[2].startTime" [min]="minDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item [hidden]="dateTime[2].work  != 'true'">
+      <ion-label>שעת סיום</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[2].endTime" [min]="minDate"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <ion-item [hidden]="dateTime[2].work  != 'true'">
+    <ion-label>זמן טיפול ללקוח</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[2].duration" ></ion-datetime>
+  </ion-item>
+
+
+  <ion-item [hidden]="dateTime[3].work != 'true'">
+    <h1>יום רבעי</h1>
+  </ion-item>
+  <ion-item [hidden]="dateTime[3].work != 'true'">
+    <ion-label>שעת התחלה</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[3].startTime" [min]="minDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item [hidden]="dateTime[3].work  != 'true'">
+    <ion-label>שעת סיום</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[3].endTime" [min]="minDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item [hidden]="dateTime[3].work  != 'true'">
+    <ion-label>זמן טיפול ללקוח</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[3].duration" ></ion-datetime>
+  </ion-item>
+
+
+  <ion-item [hidden]="dateTime[4].work != 'true'">
+    <h1>יום חמישי</h1>
+  </ion-item>
+  <ion-item [hidden]="dateTime[4].work != 'true'">
+    <ion-label>שעת התחלה</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[4].startTime" [min]="minDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item [hidden]="dateTime[4].work  != 'true'">
+    <ion-label>שעת סיום</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[4].endTime" [min]="minDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item [hidden]="dateTime[4].work  != 'true'">
+    <ion-label>זמן טיפול ללקוח</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[4].duration" ></ion-datetime>
+  </ion-item>
+
+
+
+  <ion-item [hidden]="dateTime[5].work != 'true'">
+    <h1>יום שישי</h1>
+  </ion-item>
+  <ion-item [hidden]="dateTime[5].work != 'true'">
+    <ion-label>שעת התחלה</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[5].startTime" [min]="minDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item [hidden]="dateTime[5].work  != 'true'">
+    <ion-label>שעת סיום</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[5].endTime" [min]="minDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item [hidden]="dateTime[5].work  != 'true'">
+    <ion-label>זמן טיפול ללקוח</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[5].duration" ></ion-datetime>
+  </ion-item>
+
+
+
+  <ion-item [hidden]="dateTime[6].work != 'true'">
+    <h1>יום שבת</h1>
+  </ion-item>
+  <ion-item [hidden]="dateTime[6].work != 'true'">
+    <ion-label>שעת התחלה</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[6].startTime" [min]="minDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item [hidden]="dateTime[6].work  != 'true'">
+    <ion-label>שעת סיום</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[6].endTime" [min]="minDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item [hidden]="dateTime[6].work  != 'true'">
+    <ion-label>זמן טיפול ללקוח</ion-label>
+    <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="dateTime[6].duration" ></ion-datetime>
+  </ion-item>
+
+  <button ion-button (click) = "signUpP()">Submit
+  </button>
+
+</ion-content>

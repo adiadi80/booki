@@ -1,0 +1,69 @@
+
+<script src="../../data/Professions.ts"></script>
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{professionData.cname}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+
+
+
+<ion-content padding >
+
+
+    <ion-row>
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img src={{professionData.pic}}>
+        </ion-avatar>
+        <h2> {{professionData.person}}</h2>
+
+
+      </ion-item>
+    </ion-row>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <sebm-google-map
+          [latitude]=Number(professionData.location.lat)
+          [longitude]=Number(professionData.location.lng)
+          [zoom]="15">
+
+
+          <sebm-google-map-marker
+            [latitude]=Number(professionData.location.lat)
+            [longitude]=Number(professionData.location.lng)></sebm-google-map-marker>
+
+          <sebm-google-map-marker
+            [latitude]="31.2382007"
+            [longitude]="34.8077415"></sebm-google-map-marker>
+
+        </sebm-google-map>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-row >
+
+    <button ion-button
+            block
+            outline
+            icon-left
+            [navPush] = "calendarPage"
+            [navParams] = "obj"
+            >
+
+      Calender
+
+    </button>
+
+  </ion-row>
+
+</ion-content>

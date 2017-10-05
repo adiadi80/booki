@@ -1,0 +1,41 @@
+<ion-header>
+
+
+
+  <ion-navbar color="primary">
+    <ion-buttons end>
+      <button  ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title >בחר שעה </ion-title>
+
+
+
+
+  </ion-navbar>
+
+  <ion-item >
+    <ion-avatar item-left>
+      <img src={{profession.pic}}>
+    </ion-avatar>
+    <h2> {{profession.cname}}</h2>
+  </ion-item>
+
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list>
+    <button ion-item *ngFor ="let item of items"
+    (click)="pickHour(item)">
+      <p class ="author">{{item.getHours()+":"+item.getMinutes()}}</p>
+    </button>
+  </ion-list>
+
+
+
+
+</ion-content>

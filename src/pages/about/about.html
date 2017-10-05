@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-buttons left start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+
+    <ion-title>Book</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <button ion-item *ngFor="let key of keys ;let i= index"
+            [navPush] = "professionsPage"
+            [navParams] = "pitems[i]">
+      <p class ="author">{{key}}</p>
+
+    </button>
+  </ion-list>
+
+</ion-content>
